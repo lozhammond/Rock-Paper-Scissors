@@ -1,0 +1,59 @@
+function rockpaperscissors() {
+  var userScore = 0;
+  var computerScore = 0;
+  var repeatGame = 0;
+  
+  do {
+    
+  var user = prompt("Rock, paper, scissors?");
+  var choices = ["Rock", "Paper", "Scissors"]
+  var randomise = Math.floor(Math.random()*choices.length);
+  var computer = choices[randomise];
+  var response;
+  
+  if (user.toLowerCase() == computer.toLowerCase()) {
+    response = "Draw!"
+  }  
+  else if (user == "Scissors" || user == "scissors") {
+    if (computer == "Rock") {
+      response = "You lose!";
+    }
+    else if (computer == "Paper") {
+      response = "You win!";
+    }
+  }
+  else if (user == "Paper" || user == "paper") {
+    if (computer == "Scissors") {
+      response = "You lose!";
+    }
+    else if (computer == "Rock") {
+      response = "You win!";
+    }
+  }
+ else if (user == "Rock" || user == "rock") {
+    if (computer == "Paper") {
+      response = "You lose!";
+    }
+    else if (computer == "Scissors") {
+      response = "You win!";
+    }
+ }
+ else {
+   response = "Check your spelling..."
+ };
+    
+  if (response == "You win!") {
+    userScore++;
+  }
+  else if (response == "You lose!") {
+    computerScore++;
+  }
+  
+  var scoreDisplay = window.prompt(user + " vs " + computer + "\n" + response + "\n" + "You: " + userScore + "\n" + "Computer: " + computerScore + "\n" + "Play again? Type yes or no.");
+  
+  if (scoreDisplay == "No" || scoreDisplay == "no" || scoreDisplay == null) {
+    repeatGame = 1;
+  }
+  }
+ while(repeatGame == 0); 
+};
